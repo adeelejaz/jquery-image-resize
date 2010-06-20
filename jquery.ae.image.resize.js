@@ -1,4 +1,4 @@
-jQuery.fn.resize = function(options) {
+jQuery.fn.aeImageResize = function(options) {
 	var params = jQuery.extend({
 		height: 9,
 		width: 9

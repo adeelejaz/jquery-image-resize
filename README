@@ -1,14 +1,14 @@
 jQuery Resize Plugin Demo
 
 Author: Adeel Ejaz (http://adeelejaz.com/)
-Version: 0.1.0
+Version: 2.0.0
 License: Dual licensed under MIT or GPL licenses.
 
 Introduction
-resize is a jQuery plugin to dynamically resize the images without distorting the proportions.
+aeImageResize is a jQuery plugin to dynamically resize the images without distorting the proportions.
 
 Usage:
-.resize( height, width )
+.aeImageResize( height, width )
 
 height
 An integer representing the maximum height for the image.
@@ -18,5 +18,5 @@ An integer representing the maximum width for the image.
 
 Example
 $(function() {
-	$(".resizeme").resize({height: 250, width: 250});
+	$(".resizeme").aeImageResize({height: 250, width: 250});
 });

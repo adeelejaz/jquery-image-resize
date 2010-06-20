@@ -4,30 +4,30 @@
 		<meta charset=utf-8>
 		<title>jQuery Resize Plugin Demo</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-		<script src="./jquery.resize-0.1.0.min.js"></script>
+		<script src="./jquery.ae.image.resize.min.js"></script>
 		<script>
 			$(function() {
-				$(".resizeme").resize({height: 250, width: 250});
+				$(".resizeme").aeImageResize({height: 250, width: 250});
 			});
 		</script>
 	</head>
 	<body>
 		<h1>jQuery Resize Plugin Demo</h1>
 		<p><b>Author:</b> Adeel Ejaz (<a href="http://adeelejaz.com/">http://adeelejaz.com/</a>)</p>
-		<p><b>Version:</b> 0.1.0</p>
+		<p><b>Version:</b> 2.0.0</p>
 		<p><b>License:</b> Dual licensed under <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> or <a href="http://www.opensource.org/licenses/gpl-license.php">GPL</a> licenses.</p>
 
 		<h2>Introduction</h2>
-		<p>resize is a jQuery plugin to dynamically resize the images without distorting the proportions.</p>
+		<p>aeImageResize is a jQuery plugin to dynamically resize the images without distorting the proportions.</p>
 		
 		<h2>Usage:</h2>
-		<pre>.resize( height, width )</pre>
-		<p><b><pre>height</pre></b> An integer representing the maximum height for the image.</p>
-		<p><b><pre>width</pre></b> An integer representing the maximum width for the image.</p>
+		<pre>.aeImageResize( height, width )</pre>
+		<p><pre style="font-weight:bold">height</pre> An integer representing the maximum height for the image.</p>
+		<p><pre style="font-weight:bold">width</pre> An integer representing the maximum width for the image.</p>
 		
 		<h2>Example</h2>
 		<pre>$(function() {
-	$(".resizeme").resize({height: 250, width: 250});
+	$(".resizeme").aeImageResize({height: 250, width: 250});
 });</pre>
 		<ul>
 			<li>
