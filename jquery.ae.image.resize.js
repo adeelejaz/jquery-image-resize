@@ -1,27 +1,29 @@
 (function($) {
 	$.fn.aeImageResize = function(options) {
-		var params = jQuery.extend({
-			height: 9,
-			width: 9
-		}, options);
+		var mathCeil = Math.ceil,
+			mathFloor = Math.floor,
+			params = jQuery.extend({
+				height: 9,
+				width: 9
+			}, options);
 
 		this.each(function() {
-			var height = params.height,
-				width = params.width,
-				img_height = $(this).height(),
-				img_width = $(this).width(),
-				m_ceil = Math.ceil,
-				m_floor = Math.floor;
+			var imgHeight = $(this).height(),
+				imgWidth = $(this).width(),
+				height = params.height,
+				width = params.width;
 
-			if (img_height >= img_width) {
-				width = m_floor(m_ceil(img_width / img_height * height));
-			} else {
-				height = m_floor(m_ceil(img_height / img_width * width));
+			if (imgHeight > height || imgWidth > width) {
+				if (imgHeight > imgWidth)
+					width = mathFloor(mathCeil(imgWidth / imgHeight * height));
+				else
+					height = mathFloor(mathCeil(imgHeight / imgWidth * width));
+				
+				$(this).attr({
+					'height': height,
+					'width': width
+				});
 			}
-			$(this).attr({
-				'height': height,
-				'width': width
-			});
 		});
 	};
 })(jQuery);
