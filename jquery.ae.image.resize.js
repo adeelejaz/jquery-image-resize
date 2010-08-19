@@ -1,7 +1,6 @@
 (function($) {
 	$.fn.aeImageResize = function(options) {
-		var mathCeil = Math.ceil,
-			mathFloor = Math.floor,
+		var mathFloor = Math.floor,
 			params = jQuery.extend({
 				height: 9,
 				width: 9
@@ -27,9 +26,9 @@
 
 				if (imgHeight > height || imgWidth > width) {
 					if (imgHeight > imgWidth)
-						width = mathFloor(mathCeil(imgWidth / imgHeight * height));
+						width = mathFloor(imgWidth / imgHeight * height);
 					else
-						height = mathFloor(mathCeil(imgHeight / imgWidth * width));
+						height = mathFloor(imgHeight / imgWidth * width);
 
 					$(this).attr({
 						'height': height,
