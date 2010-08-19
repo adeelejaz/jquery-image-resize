@@ -14,10 +14,16 @@
 			// Fixes Webkit browsers as they set
 			// height and width after image is loaded
 			$(this).load(function() {
-			var imgHeight = $(this).height(),
-				imgWidth = $(this).width(),
-				height = params.height,
-				width = params.width;
+
+				// Remove all attributes and CSS rules
+				$(this).removeAttr('height')
+					   .removeAttr('width')
+					   .css({ height: '', width: ''});
+
+				var imgHeight = this.height,
+					imgWidth = this.width,
+					height = params.height,
+					width = params.width;
 
 				if (imgHeight > height || imgWidth > width) {
 					if (imgHeight > imgWidth)
