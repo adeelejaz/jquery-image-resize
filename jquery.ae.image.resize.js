@@ -9,7 +9,7 @@
 
 		// Attach handler to load
 		// Handler is executed just once per element
-		// Load event required to fixes Webkit browsers
+		// Load event required to fixe Webkit browsers
 		$(this).one('load', function() {
 
 			// Remove all attributes and CSS rules
