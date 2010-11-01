@@ -2,7 +2,8 @@
 
 	$.fn.aeImageResize = function( options ) {
 
-		var mathFloor = Math.floor
+		var self = $( this )
+		,	mathFloor = Math.floor
 		,	browser = $.browser
 		,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
 		,	aspectRatio = 0
@@ -14,7 +15,7 @@
 
 		// We cannot do much unless we have one of these
 		if ( !params.height && !params.width ) {
-			return;
+			return self;
 		}
 
 		// Calculate aspect ratio now, if possible
@@ -25,7 +26,7 @@
 		// Attach handler to load
 		// Handler is executed just once per element
 		// Load event required for Webkit browsers
-		return $( this ).one( "load", function() {
+		return self.one( "load", function() {
 
 			// Remove all attributes and CSS rules
 			$( this ).removeAttr( "height" )
