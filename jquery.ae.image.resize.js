@@ -2,9 +2,7 @@
 
 	$.fn.aeImageResize = function( options ) {
 
-		var strHeight = "height"
-		,	strWidth = "width"
-		,	mathFloor = Math.floor
+		var mathFloor = Math.floor
 		,	browser = $.browser
 		,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
 		,	aspectRatio = 0
@@ -15,13 +13,13 @@
 		;
 
 		// We cannot do much unless we have one of these
-		if ( !params[strHeight] && !params[strWidth] ) {
+		if ( !params.height && !params.width ) {
 			return;
 		}
 
 		// Calculate aspect ratio now, if possible
-		if ( params[strHeight] && params[strWidth] ) {
-			aspectRatio = params[strWidth] / params[strHeight];
+		if ( params.height && params.width ) {
+			aspectRatio = params.width / params.height;
 		}
 
 		// Attach handler to load
@@ -30,18 +28,18 @@
 		$( this ).one( "load", function() {
 
 			// Remove all attributes and CSS rules
-			$( this ).removeAttr( strHeight )
-					 .removeAttr( strWidth )
+			$( this ).removeAttr( "height" )
+					 .removeAttr( "width" )
 					 .css({
-						 height: '',
-						 width: ''
+						 height: "",
+						 width: ""
 					 });
 
-			var imgHeight = this[strHeight]
-			,	imgWidth = this[strWidth]
+			var imgHeight = this.height
+			,	imgWidth = this.width
 			,	imgAspectRatio = imgWidth / imgHeight
-			,	bxHeight = params[strHeight]
-			,	bxWidth = params[strWidth]
+			,	bxHeight = params.height
+			,	bxWidth = params.width
 			,	bxAspectRatio = aspectRatio;
 				
 			// Work the magic!
