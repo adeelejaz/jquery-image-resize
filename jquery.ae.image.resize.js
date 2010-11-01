@@ -1,4 +1,4 @@
-(function($) {
+(function( $ ) {
 
 	$.fn.aeImageResize = function( options ) {
 
@@ -25,7 +25,7 @@
 		// Attach handler to load
 		// Handler is executed just once per element
 		// Load event required for Webkit browsers
-		$( this ).one( "load", function() {
+		return $( this ).one( "load", function() {
 
 			// Remove all attributes and CSS rules
 			$( this ).removeAttr( "height" )
@@ -75,4 +75,4 @@
 			}
 		});
 	};
-})(jQuery);
+})( jQuery );
