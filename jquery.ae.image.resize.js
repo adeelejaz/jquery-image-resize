@@ -1,45 +1,65 @@
 (function($) {
 	$.fn.aeImageResize = function(options) {
-		var propertyHeight = 'height',
-			propertyWidth = 'width',
+		var strHeight = 'height',
+			strWidth = 'width',
 			browser = $.browser,
 			mathFloor = Math.floor,
 			params = $.extend({
-				height: 9,
-				width: 9
+				height: 0,
+				width: 0
 			}, options),
 			isIE6 = browser.msie && (parseInt(browser.version) == 6),
-			aspectRatio = params[propertyWidth] / params[propertyHeight];
+			aspectRatio = params[strWidth] / params[strHeight];
+
+		// We cannot do much unless we have one of these
+		if ( !params[strHeight] && !params[strWidth] ) {
+			return;
+		}
+
+		// Calculate aspect ratio now, if possible
+		if ( params[strHeight] && params[strWidth] ) {
+			aspectRatio = params[strWidth] / params[strHeight];
+		}
 
 		// Attach handler to load
 		// Handler is executed just once per element
-		// Load event required to fix Webkit browsers
+		// Load event required for Webkit browsers
 		$(this).one('load', function() {
 
 			// Remove all attributes and CSS rules
-			$(this).removeAttr(propertyHeight)
-				   .removeAttr(propertyWidth)
+			$(this).removeAttr(strHeight)
+				   .removeAttr(strWidth)
 				   .css({height: '', width: ''});
 
-			var imgHeight = this[propertyHeight],
-				imgWidth = this[propertyWidth],
-				height = params[propertyHeight],
-				width = params[propertyWidth],
-				imgAspectRatio = imgWidth / imgHeight;
+			var imgHeight = this[strHeight],
+				imgWidth = this[strWidth],
+				imgAspectRatio = imgWidth / imgHeight,
+				bxHeight = params[strHeight],
+				bxWidth = params[strWidth],
+				bxAspectRatio = aspectRatio;
+				
+			// Work the magic!
+			// If one parameter is missing, we just force calculate it
+			if ( !bxAspectRatio ) {
+				if (bxHeight === 0) {
+					bxAspectRatio = imgAspectRatio - 1;
+				} else {
+					bxAspectRatio = imgAspectRatio + 1;
+				}
+			}
 
-			// Only resize the images that are bigger
-			// than the bounding box
-			if (imgHeight > height || imgWidth > width) {
+			// Only resize the images that need resizing
+			if ( (bxHeight && imgHeight > bxHeight) || (bxWidth && imgWidth > bxWidth) ) {
 
 				if (imgAspectRatio > aspectRatio) {
-					height = mathFloor(imgHeight / imgWidth * width);
+					bxHeight = mathFloor(imgHeight / imgWidth * bxWidth);
 				} else {
-					width = mathFloor(imgWidth / imgHeight * height);
+					bxWidth = mathFloor(imgWidth / imgHeight * bxHeight);
 				}
 
 				$(this).attr({
-					'height': height,
-					'width': width
+					'height': bxHeight,
+					'width': bxWidth
 				});
 			}
 		})
