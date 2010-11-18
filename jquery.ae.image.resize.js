@@ -7,8 +7,7 @@
       return this;
     }
 
-    var self = $( this )
-      ,	mathFloor = Math.floor
+    var mathFloor = Math.floor
       ,	browser = $.browser
       ,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
       ,	aspectRatio = 0
@@ -22,10 +21,10 @@
     // Attach handler to load
     // Handler is executed just once per element
     // Load event required for Webkit browsers
-    return self.one( "load", function() {
+    return this.one( "load", function() {
 
       // Remove all attributes and CSS rules
-      $( this )
+      this
         .removeAttr( "height" )
         .removeAttr( "width" )
         .css({
@@ -69,7 +68,7 @@
 
       // Trigger load event (for Gecko and MSIE)
       if ( this.complete || isIE6 ) {
-        $( this ).trigger( "load" );
+        this.trigger( "load" );
       }
     });
   };
