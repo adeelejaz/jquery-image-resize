@@ -8,8 +8,7 @@
     }
 
     var mathFloor = Math.floor
-      ,	browser = $.browser
-      ,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
+      ,	isIE6 = $.browser.msie && (parseInt($.browser.version) == 6)
       ,	aspectRatio = 0
       ;
 
