@@ -2,17 +2,17 @@
 
   $.fn.aeImageResize = function( params ) {
 
-  // We cannot do much unless we have one of these
-  if ( !params.height && !params.width ) {
-    return this;
-  }
+    // We cannot do much unless we have one of these
+    if ( !params.height && !params.width ) {
+      return this;
+    }
 
-  var self = $( this )
-    ,	mathFloor = Math.floor
-    ,	browser = $.browser
-    ,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
-    ,	aspectRatio = 0
-    ;
+    var self = $( this )
+      ,	mathFloor = Math.floor
+      ,	browser = $.browser
+      ,	isIE6 = browser.msie && (parseInt(browser.version) == 6)
+      ,	aspectRatio = 0
+      ;
 
     // Calculate aspect ratio now, if possible
     if ( params.height && params.width ) {
