@@ -8,7 +8,7 @@
     }
 
     var aspectRatio = 0
-      // Nasty I know but its done only once, so not to bad I guess
+      // Nasty I know but it's done only once, so not too bad I guess
       // Alternate suggestions welcome :)
       ,	isIE6 = $.browser.msie && (6 == ~~ $.browser.version)
       ;
