@@ -18,5 +18,5 @@ An integer representing the maximum width for the image.
 
 Example
 $(function() {
-	$( ".resizeme" ).aeImageResize({ height: 250, width: 250 });
+  $( ".resizeme" ).aeImageResize({ height: 250, width: 250 });
 });
