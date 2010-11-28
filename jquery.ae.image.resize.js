@@ -7,9 +7,10 @@
       return this;
     }
 
-    var mathFloor = Math.floor
-      ,	isIE6 = $.browser.msie && (parseInt($.browser.version) == 6)
-      ,	aspectRatio = 0
+    var aspectRatio = 0
+      // Nasty I know but its done only once, so not to bad I guess
+      // Alternate suggestions welcome :)
+      ,	isIE6 = $.browser.msie && (6 == ~~ $.browser.version)
       ;
 
     // Calculate aspect ratio now, if possible
@@ -52,9 +53,9 @@
       if ( (bxHeight && imgHeight > bxHeight) || (bxWidth && imgWidth > bxWidth) ) {
 
         if ( imgAspectRatio > aspectRatio ) {
-          bxHeight = mathFloor( imgHeight / imgWidth * bxWidth );
+          bxHeight = ~~ ( imgHeight / imgWidth * bxWidth );
         } else {
-          bxWidth = mathFloor( imgWidth / imgHeight * bxHeight );
+          bxWidth = ~~ ( imgWidth / imgHeight * bxHeight );
         }
 
         $( this ).attr({
