@@ -26,7 +26,7 @@
     return this.one( "load", function() {
 
       // Remove all attributes and CSS rules
-      this
+      $( this )
         .removeAttr( "height" )
         .removeAttr( "width" )
         .css({
@@ -68,7 +68,7 @@
 
       // Trigger load event (for Gecko and MSIE)
       if ( this.complete || isIE6 ) {
-        this.trigger( "load" );
+        $( this ).trigger( "load" );
       }
     });
   };
