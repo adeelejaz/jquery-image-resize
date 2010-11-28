@@ -26,13 +26,9 @@
     return this.one( "load", function() {
 
       // Remove all attributes and CSS rules
-      $( this )
-        .removeAttr( "height" )
-        .removeAttr( "width" )
-        .css({
-          height: "",
-          width: ""
-        });
+      this.removeAttribute(txtHeight);
+      this.removeAttribute(txtWidth);
+      this.style[txtHeight] = this.style[txtWidth] = "";
 
       var imgHeight = this[txtHeight]
         ,	imgWidth = this[txtWidth]
