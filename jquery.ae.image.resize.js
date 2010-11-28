@@ -60,10 +60,8 @@
           bxWidth = ~~ ( imgWidth / imgHeight * bxHeight );
         }
 
-        $( this ).attr({
-          "height": bxHeight,
-          "width": bxWidth
-        });
+        this[txtHeight] = bxHeight;
+        this[txtWidth] = bxWidth;
       }
     })
     .each(function() {
