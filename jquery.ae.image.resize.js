@@ -2,20 +2,22 @@
 
   $.fn.aeImageResize = function( params ) {
 
-    // We cannot do much unless we have one of these
-    if ( !params.height && !params.width ) {
-      return this;
-    }
-
     var aspectRatio = 0
       // Nasty I know but it's done only once, so not too bad I guess
       // Alternate suggestions welcome :)
       ,	isIE6 = $.browser.msie && (6 == ~~ $.browser.version)
+      , txtHeight = "height"
+      , txtWidth = "width"
       ;
 
+    // We cannot do much unless we have one of these
+    if ( !params[txtHeight] && !params[txtWidth] ) {
+      return this;
+    }
+
     // Calculate aspect ratio now, if possible
-    if ( params.height && params.width ) {
-      aspectRatio = params.width / params.height;
+    if ( params[txtHeight] && params[txtWidth] ) {
+      aspectRatio = params[txtWidth] / params[txtHeight];
     }
 
     // Attach handler to load
@@ -32,11 +34,11 @@
           width: ""
         });
 
-      var imgHeight = this.height
-        ,	imgWidth = this.width
+      var imgHeight = this[txtHeight]
+        ,	imgWidth = this[txtWidth]
         ,	imgAspectRatio = imgWidth / imgHeight
-        ,	bxHeight = params.height
-        ,	bxWidth = params.width
+        ,	bxHeight = params[txtHeight]
+        ,	bxWidth = params[txtWidth]
         ,	bxAspectRatio = aspectRatio;
 				
       // Work the magic!
