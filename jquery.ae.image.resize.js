@@ -6,18 +6,16 @@
       // Nasty I know but it's done only once, so not too bad I guess
       // Alternate suggestions welcome :)
       ,	isIE6 = $.browser.msie && (6 == ~~ $.browser.version)
-      , txtHeight = "height"
-      , txtWidth = "width"
       ;
 
     // We cannot do much unless we have one of these
-    if ( !params[txtHeight] && !params[txtWidth] ) {
+    if ( !params.height && !params.width ) {
       return this;
     }
 
     // Calculate aspect ratio now, if possible
-    if ( params[txtHeight] && params[txtWidth] ) {
-      aspectRatio = params[txtWidth] / params[txtHeight];
+    if ( params.height && params.width ) {
+      aspectRatio = params.width / params.height;
     }
 
     // Attach handler to load
@@ -26,15 +24,15 @@
     return this.one( "load", function() {
 
       // Remove all attributes and CSS rules
-      this.removeAttribute(txtHeight);
-      this.removeAttribute(txtWidth);
-      this.style[txtHeight] = this.style[txtWidth] = "";
+      this.removeAttribute("height");
+      this.removeAttribute("width");
+      this.style.height = this.style.width = "";
 
-      var imgHeight = this[txtHeight]
-        ,	imgWidth = this[txtWidth]
+      var imgHeight = this.height
+        ,	imgWidth = this.width
         ,	imgAspectRatio = imgWidth / imgHeight
-        ,	bxHeight = params[txtHeight]
-        ,	bxWidth = params[txtWidth]
+        ,	bxHeight = params.height
+        ,	bxWidth = params.width
         ,	bxAspectRatio = aspectRatio;
 				
       // Work the magic!
@@ -56,8 +54,8 @@
           bxWidth = ~~ ( imgWidth / imgHeight * bxHeight );
         }
 
-        this[txtHeight] = bxHeight;
-        this[txtWidth] = bxWidth;
+        this.height = bxHeight;
+        this.width = bxWidth;
       }
     })
     .each(function() {
