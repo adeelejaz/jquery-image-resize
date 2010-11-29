@@ -24,8 +24,8 @@
     return this.one( "load", function() {
 
       // Remove all attributes and CSS rules
-      this.removeAttribute("height");
-      this.removeAttribute("width");
+      this.removeAttribute( "height" );
+      this.removeAttribute( "width" );
       this.style.height = this.style.width = "";
 
       var imgHeight = this.height
