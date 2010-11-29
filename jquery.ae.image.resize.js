@@ -38,17 +38,17 @@
       // Work the magic!
       // If one parameter is missing, we just force calculate it
       if ( !bxAspectRatio ) {
-        if ( bxHeight === 0 ) {
-          bxAspectRatio = imgAspectRatio - 1;
-        } else {
+        if ( bxHeight ) {
           bxAspectRatio = imgAspectRatio + 1;
+        } else {
+          bxAspectRatio = imgAspectRatio - 1;
         }
       }
 
       // Only resize the images that need resizing
       if ( (bxHeight && imgHeight > bxHeight) || (bxWidth && imgWidth > bxWidth) ) {
 
-        if ( imgAspectRatio > aspectRatio ) {
+        if ( imgAspectRatio > bxAspectRatio ) {
           bxHeight = ~~ ( imgHeight / imgWidth * bxWidth );
         } else {
           bxWidth = ~~ ( imgWidth / imgHeight * bxHeight );
