@@ -29,11 +29,11 @@
       this.style.height = this.style.width = "";
 
       var imgHeight = this.height
-        ,	imgWidth = this.width
-        ,	imgAspectRatio = imgWidth / imgHeight
-        ,	bxHeight = params.height
-        ,	bxWidth = params.width
-        ,	bxAspectRatio = aspectRatio;
+        , imgWidth = this.width
+        , imgAspectRatio = imgWidth / imgHeight
+        , bxHeight = params.height
+        , bxWidth = params.width
+        , bxAspectRatio = aspectRatio;
 				
       // Work the magic!
       // If one parameter is missing, we just force calculate it
