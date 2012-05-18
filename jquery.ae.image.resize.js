@@ -1,4 +1,4 @@
-(function( $ ) {
+;(function( $ ) {
 
   $.fn.aeImageResize = function( params ) {
 
@@ -64,6 +64,10 @@
       if ( this.complete || isIE6 ) {
         $( this ).trigger( "load" );
       }
+
+      // This fixes IE9 issue
+      this.src = this.src;
     });
   };
+
 })( jQuery );
