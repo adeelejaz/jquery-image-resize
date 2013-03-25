@@ -2,11 +2,7 @@
 
   $.fn.aeImageResize = function( params ) {
 
-    var aspectRatio = 0
-      // Nasty I know but it's done only once, so not too bad I guess
-      // Alternate suggestions welcome :)
-      ,	isIE6 = $.browser.msie && (6 == ~~ $.browser.version)
-      ;
+    var aspectRatio = 0;
 
     // We cannot do much unless we have one of these
     if ( !params.height && !params.width ) {
@@ -34,7 +30,7 @@
         , bxHeight = params.height
         , bxWidth = params.width
         , bxAspectRatio = aspectRatio;
-				
+
       // Work the magic!
       // If one parameter is missing, we just force calculate it
       if ( !bxAspectRatio ) {
@@ -61,7 +57,7 @@
     .each(function() {
 
       // Trigger load event (for Gecko and MSIE)
-      if ( this.complete || isIE6 ) {
+      if ( this.complete ) {
         $( this ).trigger( "load" );
       }
 
