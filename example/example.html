@@ -11,15 +11,17 @@
   </script>
   <h1>jQuery Resize Plugin Demo</h1>
   <p><b>Author:</b> Adeel Ejaz (<a href="http://adeelejaz.com/">http://adeelejaz.com/</a>)
-  <p><b>License:</b> Dual licensed under <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> or <a href="http://www.opensource.org/licenses/gpl-license.php">GPL</a> licenses.
 
   <h2>Introduction</h2>
   <p>aeImageResize is a jQuery plugin to dynamically resize the images without distorting the proportions.
 
   <h2>Usage:</h2>
-  <pre>.aeImageResize( height, width )</pre>
-  <p><code style="font-weight:bold">height</code> An integer representing the maximum height for the image.
-  <p><code style="font-weight:bold">width</code> An integer representing the maximum width for the image.
+  <pre>.aeImageResize( params )</pre>
+
+  <h2>Params:</h2>
+  <p>A set of key/value pairs to set the height and width of the bounding box. Only one is required.
+  <p><code style="font-weight:bold">height</code> - An integer representing the maximum height for the image.
+  <p><code style="font-weight:bold">width</code> - An integer representing the maximum width for the image.
 
   <h2>Example</h2>
   <pre>$(function() {
