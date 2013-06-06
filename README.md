@@ -4,6 +4,8 @@ Version: v2.1.3
 
 A super light jQuery plugin (less than 0.5KB) to dynamically resize the images without distorting the proportions or adding any extra HTML.
 
+Please note you can also resize images using CSS: http://adeelejaz.com/blog/resize-image-without-using-javascript-or-jquery/
+
 ####HTML:
 ```html
 <img class="resizeme" src="sample1.jpg">
